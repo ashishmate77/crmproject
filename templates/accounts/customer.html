@@ -1,0 +1,72 @@
+{% extends 'accounts/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<style>
+h4{
+    font-size: 15px;
+}
+body{
+    background-color: lightblue;
+    color:red;
+}
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body bg-primary text-white">
+                <h3>Contact Information:</h3>
+                    <h4>Name:&emsp;{{ customer.first_name }} </h4>
+                    <h4>Email:&emsp; {{ customer.email }}</h4>
+                    <h4>Mobile:&emsp; {{ customer.mobile  }} </h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            {% include 'accounts/status.html' %}
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+        {% if orders %}
+        <h1 class="text-center">{{ customer.first_name }} Orders</h1>
+        <table class="table bg-dark text-white table-bordered text-center">
+            <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Order Date</th>
+                <th>Category</th>
+                <th>status</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for i in orders %}
+                <tr>
+                    <td> {{ i.customer.first_name }} </td>
+                    <td> {{ i.product.name }}</td>
+                    <td> {{ i.product.price }}</td>
+                    <td> {{ i.created_date }}</td>
+                    <td> {{ i.product.category }}</td>
+                    <td> {{ i.status }} </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h1>No Order of {{ customer.first_name }}</h1>
+        {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

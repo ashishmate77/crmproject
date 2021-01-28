@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<style>
+    h5{
+        font-size: 15px;
+    }
+</style>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md">
+        <div class="card bg-success">
+            <div class="card-body text-white text-center">
+                <h5>Total Orders</h5>
+                <h4>{{ total_orders }}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card bg-primary">
+            <div class="card-body text-white text-center">
+                <h5>Pending Orders</h5>
+                <h4>{{ pending_orders }}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card bg-secondary">
+            <div class="card-body text-white text-center">
+                <h5>Delivery Orders</h5>
+                <h4>{{delivered_orders }}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card bg-danger">
+            <div class="card-body text-center text-white">
+                <h5>Out For Delivery</h5>
+                <h4>{{ outfordelivery_orders }}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+
+
